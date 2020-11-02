@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<GridPane fx:controller="sample.controller.ReportController"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+
+   <VBox>
+       <TableView fx:id="tableView" GridPane.columnIndex="0"
+                  GridPane.rowIndex="1" minWidth="500">
+           <columns>
+               <TableColumn fx:id="orderDateColumn" text="Date">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="orderDateTXT" >
+                       </PropertyValueFactory>
+                   </cellValueFactory>
+               </TableColumn>
+               <TableColumn fx:id="orderIdColumn" text="ID" >
+                   <cellValueFactory>
+                       <PropertyValueFactory property="id">
+                       </PropertyValueFactory>
+                   </cellValueFactory>
+               </TableColumn>
+               <TableColumn fx:id="customerColumn" text="Name and Surname" >
+                   <cellValueFactory>
+                       <PropertyValueFactory property="nameSurnameTXT">
+                       </PropertyValueFactory>
+                   </cellValueFactory>
+               </TableColumn>
+               <TableColumn fx:id="productListColumn" text="Product List">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="productListTXT">
+                       </PropertyValueFactory>
+                   </cellValueFactory>
+               </TableColumn>
+               <TableColumn fx:id="orderValueColumn" text="Value (EUR)">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="orderValue" >
+                       </PropertyValueFactory>
+                   </cellValueFactory>
+               </TableColumn>
+               <TableColumn fx:id="registrDateColumn" text="Registration Date">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="registrDate" >
+                       </PropertyValueFactory>
+                   </cellValueFactory>
+               </TableColumn>
+               <TableColumn fx:id="paymentDateColumn" text="Payment Date">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="paymentDate" >
+                       </PropertyValueFactory>
+                   </cellValueFactory>
+               </TableColumn>
+               <TableColumn fx:id="sentDateColumn" text="Dispatch Date">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="sentDate" >
+                       </PropertyValueFactory>
+                   </cellValueFactory>
+               </TableColumn>
+               <TableColumn fx:id="hideColumn" text="Hide">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="hide" >
+                       </PropertyValueFactory>
+                   </cellValueFactory>
+               </TableColumn>
+           </columns>
+       </TableView>
+       <HBox spacing="100">
+           <Button fx:id="editBtn" text="Edit Order"/>
+           <Button fx:id="refreshBtn" text="Refresh Order List" />
+           <Button fx:id="deleteBtn" text="Delete Order"/>
+           <Button fx:id="showHidenBtn" text="Show Hidden"/>
+       </HBox>
+
+   </VBox>
+
+</GridPane>

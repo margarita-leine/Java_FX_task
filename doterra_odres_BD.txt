@@ -1,0 +1,19 @@
+CREATE TABLE IF NOT EXISTS order_list(
+id BIGINT PRIMARY KEY AUTO_INCREMENT,
+customer VARCHAR(100),
+product_list VARCHAR(1000));
+
+ALTER TABLE order_list
+ADD order_date DATE;
+
+ALTER TABLE order_list
+ADD order_value DOUBLE;
+
+ALTER TABLE order_list
+ADD registration_date DATE;
+
+ALTER TABLE order_list
+ADD payment_date DATE;
+
+ALTER TABLE order_list
+ADD sent_date DATE;

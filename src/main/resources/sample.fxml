@@ -1,0 +1,37 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.TextField?>
+<GridPane fx:controller="sample.controller.Controller"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+
+    <VBox spacing="60">
+        <Text fx:id="actionMessage"/>
+        <HBox spacing="160">
+            <Button fx:id="orderBtn" text="[  NEW ORDER  ]"/>
+            <Button fx:id="reportBtn" text="[  REPORT  ]" alignment="TOP_LEFT"/>
+        </HBox>
+        <HBox fx:id="orderHbox" visible="false" spacing="40">
+            <VBox>
+                <Text fx:id="dateTXT" text="DATE"/>
+                <Text fx:id="orderDateTXT"/>
+            </VBox>
+            <VBox>
+                <Text fx:id="nameSurnameTXT" text="NAME AND SURMANE"/>
+                <TextField fx:id="nameSurnameField"/>
+            </VBox>
+            <VBox>
+                <Text fx:id="productListTXT" text="PRODUCT LIST"/>
+                <TextField fx:id="productListField"/>
+            </VBox>
+        </HBox>
+        <HBox>
+            <Button fx:id="submitBtn" text="[  SUMBIT  ]" visible="false"/>
+        </HBox>
+    </VBox>
+</GridPane>
