@@ -12,12 +12,15 @@
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
 
    <VBox>
+       <Text fx:id="actionMessage"/>
        <TableView fx:id="tableView" GridPane.columnIndex="0"
-                  GridPane.rowIndex="1" minWidth="500">
+                  GridPane.rowIndex="1" minWidth="900" editable="true">
            <columns>
                <TableColumn fx:id="orderDateColumn" text="Date">
                    <cellValueFactory>
-                       <PropertyValueFactory property="orderDateTXT" >
+
+                       <PropertyValueFactory property="oderDate" >
+
                        </PropertyValueFactory>
                    </cellValueFactory>
                </TableColumn>
@@ -29,31 +32,33 @@
                </TableColumn>
                <TableColumn fx:id="customerColumn" text="Name and Surname" >
                    <cellValueFactory>
-                       <PropertyValueFactory property="nameSurnameTXT">
+                       <PropertyValueFactory property="customer">
                        </PropertyValueFactory>
                    </cellValueFactory>
                </TableColumn>
                <TableColumn fx:id="productListColumn" text="Product List">
                    <cellValueFactory>
-                       <PropertyValueFactory property="productListTXT">
+                       <PropertyValueFactory property="productName">
                        </PropertyValueFactory>
                    </cellValueFactory>
                </TableColumn>
-               <TableColumn fx:id="orderValueColumn" text="Value (EUR)">
+               <TableColumn fx:id="orderValueColumn" text="Value (EUR)" editable="true"  >
                    <cellValueFactory>
-                       <PropertyValueFactory property="orderValue" >
+                       <PropertyValueFactory fx:id="ovCell" property="orderValue" >
+
                        </PropertyValueFactory>
                    </cellValueFactory>
                </TableColumn>
+
                <TableColumn fx:id="registrDateColumn" text="Registration Date">
                    <cellValueFactory>
-                       <PropertyValueFactory property="registrDate" >
+                       <PropertyValueFactory  property="registrDate" >
                        </PropertyValueFactory>
                    </cellValueFactory>
                </TableColumn>
                <TableColumn fx:id="paymentDateColumn" text="Payment Date">
                    <cellValueFactory>
-                       <PropertyValueFactory property="paymentDate" >
+                       <PropertyValueFactory property="paymentDate">
                        </PropertyValueFactory>
                    </cellValueFactory>
                </TableColumn>
@@ -72,11 +77,13 @@
            </columns>
        </TableView>
        <HBox spacing="100">
+           <Button fx:id="saveBtn" text="Save"/>
            <Button fx:id="editBtn" text="Edit Order"/>
            <Button fx:id="refreshBtn" text="Refresh Order List" />
            <Button fx:id="deleteBtn" text="Delete Order"/>
-           <Button fx:id="showHidenBtn" text="Show Hidden"/>
+           <Button fx:id="showHiddenBtn" text="Show Hidden"/>
        </HBox>
+
 
    </VBox>
 

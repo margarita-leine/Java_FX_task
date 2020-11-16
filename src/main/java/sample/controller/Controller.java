@@ -1,5 +1,6 @@
 package sample.controller;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -56,6 +57,7 @@ public class Controller {
         });
         submitBtn.setOnMouseClicked(s-> {
             Order order1 = new Order();
+            order1.setOderDate((new Date()));
             order1.setCustomer(nameSurnameField.getText());
             order1.setProductName(productListField.getText());
             if (validationUtils.isEmptyOrNull(nameSurnameField.getText())
@@ -84,6 +86,8 @@ public class Controller {
             stage.showAndWait();
             OrderDAO orderDAO = new OrderDAO();
             List<Order> orderList = orderDAO.getOrderList();
+
+
 
         });
 

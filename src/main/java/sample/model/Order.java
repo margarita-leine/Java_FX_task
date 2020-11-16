@@ -1,5 +1,4 @@
 package sample.model;
-
 import javax.persistence.*;
 import java.util.Date;
 @Entity

@@ -7,6 +7,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <GridPane fx:controller="sample.controller.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
 
@@ -33,5 +36,9 @@
         <HBox>
             <Button fx:id="submitBtn" text="[  SUMBIT  ]" visible="false"/>
         </HBox>
+
+
     </VBox>
+
+
 </GridPane>
