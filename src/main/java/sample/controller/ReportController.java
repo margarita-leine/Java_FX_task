@@ -48,6 +48,8 @@ public class ReportController {
     @FXML
     private TableColumn<Order, Double> orderValueColumn;
 
+    @FXML
+    private TableColumn<Order, String> customerColumn;
 
 
     public void initialize() {
@@ -99,6 +101,33 @@ public class ReportController {
         orderValueColumn.setCellFactory(TextFieldTableCell.forTableColumn(new DoubleStringConverter()));
 
 
+        editBtn.setOnMouseClicked(t-> {
+            //razreshaem edit na kolonke i taablice, pri nazatiji ENTER, takoi uz komponent
+            customerColumn.setEditable(true);
+            customerColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+            tableView.setEditable(true);
+        });
+
+
+        //SDESJ o4enj vazno. U nas obnovleno na grid no ne obnovleno v baze
+        //I grid vnutri xranit starie objekti, esli ego otkritj zakritj on starie dannie vozmjot
+        //etot kusok koda govorit: VOZMI to sto ja obnovil, i zapishi sebe v grid items
+        //Dlja kazdoi kolonki nuzno takuju logiku napisatj.
+        //naprimer dlja orderValue budet order.setvalue(commitEvent.getNewValue)
+        customerColumn.setOnEditCommit(commitEvent -> {
+            commitEvent.getRowValue().setCustomer(commitEvent.getNewValue());
+        });
+
+        //Posle izmenenija v baze to ne izmeneno, izmeneno toljko na GRID, poetomu pri nazatiji nuzno kazdij order obnovitj
+        //zaodno zapreshaem editable, tak kak dumaem sto redaktirovanie zakonm4ilosj
+        saveBtn.setOnMouseClicked(saveEvent -> {
+            tableView.setEditable(false);
+            customerColumn.setEditable(false);
+            tableView.refresh();
+            tableView.getItems().forEach(t-> {
+                orderDAO.saveOrder(t);
+            });
+        });
 
     }
 }

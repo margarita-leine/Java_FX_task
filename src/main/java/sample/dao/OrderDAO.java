@@ -33,8 +33,16 @@ public class OrderDAO {
         Transaction newTrn = HibernateUtils.getSessionFactory().getCurrentSession().beginTransaction();
         HibernateUtils.getSessionFactory().getCurrentSession().delete(order);
         newTrn.commit();
-
-
-
     }
+
+
+    public void saveOrder(Order order) {
+        Transaction newTrn = HibernateUtils.getSessionFactory().getCurrentSession().beginTransaction();
+        //Metod merge stobi on soobrozil esli ID 2 to etot imeno tot object sto v baze s ID 2.
+        //Povtorite raznicu mezdu persist / save / merge povtorite sto takoe Hibernate Session
+        //na praktike vezde v podobnom ispoljzujut v osnovom merge
+        HibernateUtils.getSessionFactory().getCurrentSession().merge(order);
+        newTrn.commit();
+    }
+
 }
